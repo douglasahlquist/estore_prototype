@@ -11,3 +11,8 @@ The code will be implemented in an on going process such that it will be modular
 
 
 Details will be forthcomin to specify reasoning behind why the implemention this prototype was done in a certain way and if it differed from the earlier description, and what choices were made when deciding what to implement and what to stub out.  Some features such as Payment and User Authentication will be either omitted of stubbed out.
+
+
+PROJECT ORGANIZATION
+This repo contains serveral 'maven' projects.  There organization are in a heirarchical structure such that all may be build from the 'estore_master' project.  You must have JAVA8 and Maven installed on your system to build the current repo.  Navigate into the estore_master project and run the `mvn install` command to build all archives.
+As of now no java mains are moved into the repo.  SpringBoot and Restful Controllers will follow shortly.
