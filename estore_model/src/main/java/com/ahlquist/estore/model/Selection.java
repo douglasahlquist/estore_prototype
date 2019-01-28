@@ -18,10 +18,10 @@ import lombok.Setter;
 public class Selection extends BaseEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = 2380575758481965345L;
-	
+
 	@Column(name = "user_id")
 	private Long userId;
-	
+
 	@Column(name = "cart_id")
 	private Long cartId;
 
@@ -33,7 +33,7 @@ public class Selection extends BaseEntity<Long> implements Serializable {
 
 	@Column(name = "price_id")
 	private Long priceId;
-	
+
 	private int count;
 
 }

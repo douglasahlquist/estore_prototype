@@ -8,7 +8,8 @@ import com.ahlquist.estore.builder.PriceBuilder;
 import com.ahlquist.estore.model.Price;
 import com.ahlquist.estore.repositories.PriceRepository;
 
-public class PriceServiceImpl extends BaseServiceImpl<PriceRepository, PriceBuilder, Price, Long> implements PriceService {
+public class PriceServiceImpl extends BaseServiceImpl<PriceRepository, PriceBuilder, Price, Long>
+		implements PriceService {
 
 	final static Logger logger = Logger.getLogger(PriceServiceImpl.class);
 

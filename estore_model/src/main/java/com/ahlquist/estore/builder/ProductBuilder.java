@@ -6,7 +6,7 @@ import com.ahlquist.estore.commons.EntityToJsonUtil;
 import com.ahlquist.estore.model.Product;
 
 public class ProductBuilder implements IEntityBuilder<Product> {
-	
+
 	public static final String CATEGORY = "category";
 	public static final String DESCRIPTION = "description";
 	public static final String IMAGEURL = "imageUrl";
@@ -20,7 +20,7 @@ public class ProductBuilder implements IEntityBuilder<Product> {
 		p.setDescription(json.getString(DESCRIPTION));
 		p.setId(json.getLong(ID));
 		p.setImageUrl(json.getString(IMAGEURL));
-		p.setVariants(json.getJSONObject(VARIANTS));	
+		p.setVariants(json.getJSONObject(VARIANTS));
 		return p;
 	}
 

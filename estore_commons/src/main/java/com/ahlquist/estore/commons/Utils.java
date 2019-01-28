@@ -36,31 +36,31 @@ public class Utils {
 		}
 		return new String(buffer.toByteArray(), StandardCharsets.UTF_8);
 	}
-	
+
 	public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.S";
-	
+
 	public static String timestampToString(final String format, final Timestamp time) {
 		Long millis = time.getTime();
 		return new SimpleDateFormat(format).format(new Date(millis));
 	}
-	
+
 	public static String timestampAsString(Timestamp timestamp) {
-	    return timestampToString(DEFAULT_DATE_FORMAT, timestamp);
+		return timestampToString(DEFAULT_DATE_FORMAT, timestamp);
 	}
-	
+
 	public static Timestamp stringToTimestamp(final String format, final String dateString) {
-		
+
 		Timestamp timestamp = null;
 		try {
-		    SimpleDateFormat dateFormat = new SimpleDateFormat(format);
-		    Date parsedDate = dateFormat.parse(dateString);
-		    timestamp = new java.sql.Timestamp(parsedDate.getTime());
-		} catch(Exception e) { 
-		   e.printStackTrace();
+			SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+			Date parsedDate = dateFormat.parse(dateString);
+			timestamp = new java.sql.Timestamp(parsedDate.getTime());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return timestamp;
 	}
-    
+
 	public static Timestamp stringToTimestamp(final String dateString) {
 		return stringToTimestamp(DEFAULT_DATE_FORMAT, dateString);
 	}

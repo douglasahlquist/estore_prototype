@@ -32,18 +32,18 @@ public class Transaction extends BaseEntity<Long> implements Serializable {
 
 	@Column(name = "user_id")
 	private Long userId;
-	
-	private char type; //either 'd' or 'c' credit/debit
-	
+
+	private char type; // either 'd' or 'c' credit/debit
+
 	@Column(name = "payment_info")
 	private JSONObject paymentInfo;
-	
+
 	@Column(name = "product_info")
 	private JSONObject productInfo;
 
 	@Column(name = "transaction_time")
 	private Timestamp transactionTime;
-	
+
 	private double cost;
 
 }

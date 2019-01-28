@@ -11,11 +11,11 @@ public class UserBuilder implements IEntityBuilder<User> {
 
 	public static final String EMAIL = "email";
 	public static final String ID = "id";
-    public static final String FIRSTNAME = "first_name";
-    public static final String LASTNAME = "last_name";
-    public static final String LOGINTOKEN = "login_token";
-    public static final String USERNAME = "username";
-    public static final String PASSWORD = "password";
+	public static final String FIRSTNAME = "first_name";
+	public static final String LASTNAME = "last_name";
+	public static final String LOGINTOKEN = "login_token";
+	public static final String USERNAME = "username";
+	public static final String PASSWORD = "password";
 
 	public User build(JSONObject json, int level) {
 
@@ -26,7 +26,7 @@ public class UserBuilder implements IEntityBuilder<User> {
 		u.setId(json.getLong(ID));
 		u.setLastname(json.getString(LASTNAME));
 		u.setLoginToken(json.getString(LOGINTOKEN));
-        u.setUsername(json.getString(USERNAME));
+		u.setUsername(json.getString(USERNAME));
 		return u;
 	}
 

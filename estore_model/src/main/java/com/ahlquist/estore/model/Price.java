@@ -28,11 +28,11 @@ import lombok.Setter;
 public class Price extends BaseEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = 2319283551414401713L;
-	
-	@Column(name="product_id")
+
+	@Column(name = "product_id")
 	private Long productId;
-	
-	@Column(name="variation_uuid")
+
+	@Column(name = "variation_uuid")
 	private String variationUuid;
 
 	private Double amount;

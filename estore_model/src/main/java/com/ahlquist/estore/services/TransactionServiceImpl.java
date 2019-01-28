@@ -8,8 +8,8 @@ import com.ahlquist.estore.builder.TransactionBuilder;
 import com.ahlquist.estore.model.Transaction;
 import com.ahlquist.estore.repositories.TransactionRepository;
 
-public class TransactionServiceImpl extends BaseServiceImpl<TransactionRepository, TransactionBuilder, Transaction, Long>
-		implements TransactionService {
+public class TransactionServiceImpl extends
+		BaseServiceImpl<TransactionRepository, TransactionBuilder, Transaction, Long> implements TransactionService {
 
 	final static Logger logger = Logger.getLogger(TransactionServiceImpl.class);
 

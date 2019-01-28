@@ -37,24 +37,24 @@ public class CsvCipher {
 	private static final String TOKEN = "passwd";
 	private String salt;
 
-	//@Autowired(required = false)
-	//@Qualifier("pwdIterations")
+	// @Autowired(required = false)
+	// @Qualifier("pwdIterations")
 	private int pwdIterations = 65536;
 
-	//@Autowired(required = false)
-	//@Qualifier("keySize")
+	// @Autowired(required = false)
+	// @Qualifier("keySize")
 	private int keySize = 128;
 
-	//@Autowired(required = false)
-	//@Qualifier("keyAlgorithm")
+	// @Autowired(required = false)
+	// @Qualifier("keyAlgorithm")
 	private String keyAlgorithm = "AES";
 
-	//@Autowired(required = false)
-	//@Qualifier("encryptAlgorithm")
+	// @Autowired(required = false)
+	// @Qualifier("encryptAlgorithm")
 	private String encryptAlgorithm = "AES/CBC/PKCS5Padding";
 
-	//@Autowired(required = false)
-	//@Qualifier("secretKeyFactoryAlgorithm")
+	// @Autowired(required = false)
+	// @Qualifier("secretKeyFactoryAlgorithm")
 	private String secretKeyFactoryAlgorithm = "PBKDF2WithHmacSHA1";
 
 	private IvParameterSpec iv;

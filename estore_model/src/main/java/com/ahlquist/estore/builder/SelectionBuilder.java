@@ -6,7 +6,7 @@ import com.ahlquist.estore.commons.EntityToJsonUtil;
 import com.ahlquist.estore.model.Selection;
 
 public class SelectionBuilder implements IEntityBuilder<Selection> {
-	
+
 	public static final String ID = "id";
 	public static final String CARTID = "cartid";
 	public static final String COUNT = "count";
@@ -23,8 +23,8 @@ public class SelectionBuilder implements IEntityBuilder<Selection> {
 		s.setCount(json.getInt(COUNT));
 		s.setPriceId(json.getLong(PRICEID));
 		s.setProductId(json.getLong(PRODUCTID));
-        s.setUserId(json.getLong(USERID));
-        s.setVariantUuid(json.getString(VARIANTUUID));
+		s.setUserId(json.getLong(USERID));
+		s.setVariantUuid(json.getString(VARIANTUUID));
 		return s;
 	}
 
