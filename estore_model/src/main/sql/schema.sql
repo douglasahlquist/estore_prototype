@@ -5,6 +5,8 @@ DROP TABLE `estore`.`users`;
 DROP TABLE `estore`.`products`;
 DROP TABLE `estore`.`prices`;
 DROP TABLE `estore`.`inentory`;
+DROP TABLE `estore`.`selections`;
+DROP TABLE `estore`.`carts`;
 DROP TABLE `estore`.`transactions`;
 
 CREATE TABLE `estore`.`users` (
@@ -48,7 +50,7 @@ CREATE TABLE `estore`.`inventory` (
  PRIMARY KEY (id)
 ) ENGINE=INNODB;
 
-CREATE TABLE `estore`.`selection` (
+CREATE TABLE `estore`.`selections` (
  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
  `user_id` BIGINT(20) NOT NULL,  
  `product_id` BIGINT(20) NOT NULL,
@@ -59,7 +61,7 @@ CREATE TABLE `estore`.`selection` (
  FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id)
 ) ENGINE=INNODB;
 
-CREATE TABLE `estore`.`cart` (
+CREATE TABLE `estore`.`carts` (
 `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 `user_id` BIGINT(20) NOT NULL,
 `open_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
