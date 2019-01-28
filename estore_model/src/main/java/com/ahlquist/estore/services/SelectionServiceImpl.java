@@ -3,11 +3,13 @@ package com.ahlquist.estore.services;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.ahlquist.estore.builder.SelectionBuilder;
 import com.ahlquist.estore.model.Selection;
 import com.ahlquist.estore.repositories.SelectionRepository;
 
+@Service("selectionServive")
 public class SelectionServiceImpl extends BaseServiceImpl<SelectionRepository, SelectionBuilder, Selection, Long>
 		implements SelectionService {
 

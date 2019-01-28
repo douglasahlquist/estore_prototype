@@ -3,11 +3,13 @@ package com.ahlquist.estore.services;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.ahlquist.estore.builder.ProductBuilder;
 import com.ahlquist.estore.model.Product;
 import com.ahlquist.estore.repositories.ProductRepository;
 
+@Service("productServive")
 public class ProductServiceImpl extends BaseServiceImpl<ProductRepository, ProductBuilder, Product, Long>
 		implements ProductService {
 
