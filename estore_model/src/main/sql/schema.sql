@@ -1,5 +1,5 @@
-CREATE DATABASE `commio`;
-USE `commio`;
+CREATE DATABASE `estore`;
+USE `estore`;
 
 DROP TABLE `estore`.`users`;
 DROP TABLE `estore`.`products`;
@@ -67,8 +67,6 @@ CREATE TABLE `estore`.`cart` (
  PRIMARY KEY (id),
  FOREIGN KEY (user_id) REFERENCES `estore`.`users` (id)
 ) ENGINE=INNODB; 
-
-
 
 CREATE TABLE `estore`.`transactions` (
  `id` BIGINT(20) NOT NULL AUTO_INCREMENT, 
