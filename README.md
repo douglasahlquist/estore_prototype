@@ -14,5 +14,6 @@ Details will be forthcomin to specify reasoning behind why the implemention this
 
 
 PROJECT ORGANIZATION
+
 This repo contains serveral 'maven' projects.  There organization are in a heirarchical structure such that all may be build from the 'estore_master' project.  You must have JAVA8 and Maven installed on your system to build the current repo.  Navigate into the estore_master project and run the `mvn install` command to build all archives.
 As of now no java mains are moved into the repo.  SpringBoot and Restful Controllers will follow shortly.
