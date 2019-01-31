@@ -14,4 +14,6 @@ public interface TransactionService extends BaseService<Transaction, Long> {
 	
 	JSONObject getTransactionListByUser(final Map<String, String> map);
 
+	JSONObject reversal(Map<String, String> map);
+
 }
