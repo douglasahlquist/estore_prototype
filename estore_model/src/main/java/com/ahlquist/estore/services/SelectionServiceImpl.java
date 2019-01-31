@@ -31,7 +31,7 @@ public class SelectionServiceImpl extends BaseServiceImpl<SelectionRepository, S
 		logger.debug("Deleting all selections for cartid: " + cartId.longValue());
 		List<Selection> list = this.getRepository().findAllByCartId(cartId);
 		for(Selection s: list) {
-			logger.debug("deleting selection with cartId: " + cartId.longValue() + " selectionId: " + s.getId().longValue())
+			logger.debug("deleting selection with cartId: " + cartId.longValue() + " selectionId: " + s.getId().longValue());
 			this.getRepository().delete(s);
 		}	
 	}
