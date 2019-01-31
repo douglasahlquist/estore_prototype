@@ -1,6 +1,7 @@
 package com.ahlquist.estore.builder;
 
 import java.sql.Timestamp;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -45,6 +46,22 @@ public class CartBuilder implements IEntityBuilder<Cart> {
 	@Override
 	public JSONObject toJson(Cart t) {
 		return new JSONObject(toString(t));
+	}
+
+	@Override
+	public Cart build(Map<String, ?> map) {
+		String beginTime = (String)map.get(BEGINTIME);
+		Timestamp bt = Utils.stringToTimestamp(Utils.DEFAULT_DATE_FORMAT, beginTime);
+		
+		String purchaseTime = (String)map.get(PURCHASETIME);
+		Timestamp pt = Utils.stringToTimestamp(Utils.DEFAULT_DATE_FORMAT, purchaseTime);
+		
+		Cart c = new Cart();
+		c.setBeginTime(bt);
+		c.setId((Long)map.get(ID));
+		c.setPurchaseTime(pt);
+		c.setUserId((Long)map.get(USERID));
+		return c;
 	}
 
 }

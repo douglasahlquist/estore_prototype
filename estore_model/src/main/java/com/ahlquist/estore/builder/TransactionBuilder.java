@@ -1,6 +1,7 @@
 package com.ahlquist.estore.builder;
 
 import java.sql.Timestamp;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -42,6 +43,22 @@ public class TransactionBuilder implements IEntityBuilder<Transaction> {
 	@Override
 	public JSONObject toJson(Transaction t) {
 		return new JSONObject(toString(t));
+	}
+
+	@Override
+	public Transaction build(Map<String, ?> map) {
+		String transactionTime = (String)map.get(TRANSACTIONTIME);
+		Timestamp tt = Utils.stringToTimestamp(Utils.DEFAULT_DATE_FORMAT, transactionTime);
+
+		Transaction t = new Transaction();
+		t.setId((Long)map.get(ID));
+		t.setUserId((Long)map.get(USERID));
+		t.setPaymentInfo((JSONObject)map.get(PAYMENTINFO));
+		t.setProductInfo((JSONObject)map.get(PRODUCTINFO));
+		t.setTransactionTime(tt);
+		t.setType((char) map.get(TYPE));
+		return t;
+
 	}
 
 }

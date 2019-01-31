@@ -1,5 +1,7 @@
 package com.ahlquist.estore.builder;
 
+import java.util.Map;
+
 import org.json.JSONObject;
 
 import com.ahlquist.estore.commons.EntityToJsonUtil;
@@ -30,6 +32,15 @@ public class InventoryBuilder implements IEntityBuilder<Inventory> {
 	@Override
 	public JSONObject toJson(Inventory t) {
 		return new JSONObject(toString(t));
+	}
+
+	@Override
+	public Inventory build(Map<String, ?> map) {
+		Inventory i = new Inventory();
+		i.setId((Long)map.get(ID));
+		i.setProductId((Long)map.get(PRODUCTID));
+		i.setQuantity((int)map.get(QUANTITY));
+		return i;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.ahlquist.estore.builder;
 
+import java.util.Map;
+
 import org.json.JSONObject;
 
 import com.ahlquist.estore.commons.EntityToJsonUtil;
@@ -36,6 +38,12 @@ public class SelectionBuilder implements IEntityBuilder<Selection> {
 	@Override
 	public JSONObject toJson(Selection t) {
 		return new JSONObject(toString(t));
+	}
+
+	@Override
+	public Selection build(Map<String, ?> map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.ahlquist.estore.builder;
 
+import java.util.Map;
+
 import org.json.JSONObject;
 
 import com.ahlquist.estore.commons.EntityToJsonUtil;
@@ -32,6 +34,12 @@ public class ProductBuilder implements IEntityBuilder<Product> {
 	@Override
 	public JSONObject toJson(Product t) {
 		return new JSONObject(toString(t));
+	}
+
+	@Override
+	public Product build(Map<String, ?> map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.ahlquist.estore.builder;
 
 import java.sql.Timestamp;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -41,6 +42,23 @@ public class PriceBuilder implements IEntityBuilder<Price> {
 	@Override
 	public JSONObject toJson(Price t) {
 		return new JSONObject(toString(t));
+	}
+
+	@Override
+	public Price build(Map<String, ?> map) {
+		String endtime = (String)map.get(ENDTIME);
+		String starttime = (String)map.get(STARtTIME);
+
+		Timestamp et = Utils.stringToTimestamp(Utils.DEFAULT_DATE_FORMAT, endtime);
+		Timestamp st = Utils.stringToTimestamp(Utils.DEFAULT_DATE_FORMAT, starttime);
+
+		Price p = new Price();
+		p.setAmount((Double)map.get(AMOUNT));
+		p.setEndTime(et);
+		p.setId((Long)map.get(ID));
+		p.setStartTime(st);
+
+		return p;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.ahlquist.estore.builder;
 
+import java.util.Map;
+
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +23,7 @@ public class UserBuilder implements IEntityBuilder<User> {
 
 		level--;
 		User u = new User();
-		u.setEmail(json.getString("EMAIL"));
+		u.setEmail(json.getString(EMAIL));
 		u.setFirstname(json.getString(FIRSTNAME));
 		u.setId(json.getLong(ID));
 		u.setLastname(json.getString(LASTNAME));
@@ -38,5 +40,17 @@ public class UserBuilder implements IEntityBuilder<User> {
 	@Override
 	public JSONObject toJson(User t) {
 		return new JSONObject(toString(t));
+	}
+
+	@Override
+	public User build(Map<String, ?> map) {
+		User u = new User();
+		u.setEmail((String)map.get(EMAIL));
+		u.setFirstname((String)map.get(FIRSTNAME));
+		u.setId((Long)map.get(ID));
+		u.setLastname((String)map.get(LASTNAME));
+		u.setLoginToken((String)map.get(LOGINTOKEN));
+		u.setUsername((String)map.get(USERNAME));
+		return u;
 	}
 }
