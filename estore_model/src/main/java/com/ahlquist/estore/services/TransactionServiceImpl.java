@@ -3,6 +3,7 @@ package com.ahlquist.estore.services;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ public class TransactionServiceImpl extends
 		BaseServiceImpl<TransactionRepository, TransactionBuilder, Transaction, Long> implements TransactionService {
 
 	final static Logger logger = Logger.getLogger(TransactionServiceImpl.class);
+	final static String USERID = "user_id";
+	
 
 	@Autowired
 	public TransactionServiceImpl(@Qualifier("transactionRepository") final TransactionRepository repository,
@@ -24,9 +27,21 @@ public class TransactionServiceImpl extends
 	}
 
 	@Override
-	public void create(Map<String, String> map) {
+	public boolean create(final Map<String, String> map) {
 		Transaction t = this.getBuilder().build(map);
-		this.getRepository().save(t);
+		return this.getRepository().save(t)!=null ? true:false;
+	}
+
+	@Override
+	public JSONObject getTransactionListByUserAndDateRange(final Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public JSONObject getTransactionListByUser(final Map<String, String> map) {
+		JSONObject json = this.getRepository().getTransactionListByUserId(map.get(USERID));
+		return null;
 	}
 
 }
