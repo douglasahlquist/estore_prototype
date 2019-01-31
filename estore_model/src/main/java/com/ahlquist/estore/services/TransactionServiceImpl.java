@@ -1,5 +1,6 @@
 package com.ahlquist.estore.services;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -39,8 +40,13 @@ public class TransactionServiceImpl extends
 	}
 	
 	@Override
-	public JSONObject getTransactionListByUser(final Map<String, String> map) {
-		JSONObject json = this.getRepository().getTransactionListByUserId(map.get(USERID));
+	public List<Transaction> getTransactionListByUserId(final Map<String, String> map) {
+		return this.getRepository().getTransactionListByUserId(map.get(USERID));
+	}
+
+	@Override
+	public JSONObject reversal(Map<String, String> map) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

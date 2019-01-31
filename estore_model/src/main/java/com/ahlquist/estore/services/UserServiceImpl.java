@@ -30,4 +30,10 @@ BaseServiceImpl<UserRepository, UserBuilder, User, Long> implements UserService 
 		
 	}
 
+	@Override
+	public String login(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

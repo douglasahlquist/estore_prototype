@@ -39,7 +39,8 @@ public class InventoryBuilder implements IEntityBuilder<Inventory> {
 		Inventory i = new Inventory();
 		i.setId((Long)map.get(ID));
 		i.setProductId((Long)map.get(PRODUCTID));
-		i.setQuantity((int)map.get(QUANTITY));
+		Integer q = Integer.parseInt((String) map.get(QUANTITY));
+		i.setQuantity(q.intValue());
 		return i;
 	}
 

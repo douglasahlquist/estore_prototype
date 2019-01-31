@@ -56,7 +56,8 @@ public class TransactionBuilder implements IEntityBuilder<Transaction> {
 		t.setPaymentInfo((JSONObject)map.get(PAYMENTINFO));
 		t.setProductInfo((JSONObject)map.get(PRODUCTINFO));
 		t.setTransactionTime(tt);
-		t.setType((char) map.get(TYPE));
+		String c = (String)map.get(TYPE);
+		t.setType(c.charAt(0));
 		return t;
 
 	}

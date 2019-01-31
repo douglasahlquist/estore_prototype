@@ -1,5 +1,6 @@
 package com.ahlquist.estore.services;
 
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -12,7 +13,7 @@ public interface TransactionService extends BaseService<Transaction, Long> {
 
 	JSONObject getTransactionListByUserAndDateRange(final Map<String, String> map);
 	
-	JSONObject getTransactionListByUser(final Map<String, String> map);
+	List<Transaction> getTransactionListByUserId(final Map<String, String> map);
 
 	JSONObject reversal(Map<String, String> map);
 
