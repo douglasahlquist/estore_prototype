@@ -35,6 +35,7 @@
 		<module>../estore_model/pom.xml</module>
 		<module>../estore_admin/pom.xml</module>
 		<module>../estore_commerce/pom.xml</module>
+		<module>../estore_transaction/pom.xml</module>
 	</modules>
 
 	<build>
