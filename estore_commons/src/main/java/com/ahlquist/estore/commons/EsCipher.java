@@ -30,7 +30,7 @@ import org.apache.log4j.Logger;
  * 
  */
 
-public class CsvCipher {
+public class EsCipher {
 
 	final static org.apache.log4j.Logger logger = Logger.getLogger(Cipher.class);
 
@@ -59,7 +59,7 @@ public class CsvCipher {
 
 	private IvParameterSpec iv;
 
-	public CsvCipher() {
+	public EsCipher() {
 		this.salt = getSalt();
 	}
 
