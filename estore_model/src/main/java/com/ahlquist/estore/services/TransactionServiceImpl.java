@@ -1,5 +1,7 @@
 package com.ahlquist.estore.services;
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,6 +21,12 @@ public class TransactionServiceImpl extends
 	public TransactionServiceImpl(@Qualifier("transactionRepository") final TransactionRepository repository,
 			@Qualifier("transactionBuilder") final TransactionBuilder builder) {
 		super(repository, builder);
+	}
+
+	@Override
+	public void create(Map<String, String> map) {
+		Transaction t = this.getBuilder().build(map);
+		this.getRepository().save(t);
 	}
 
 }
