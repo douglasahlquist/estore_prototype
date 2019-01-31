@@ -9,7 +9,7 @@ import com.ahlquist.estore.model.Price;
  * @author Douglas Ahlquist
  *
  */
-@Repository
+@Repository("priceRepository")
 public interface PriceRepository extends CrudRepository<Price, Long> {
 
 }

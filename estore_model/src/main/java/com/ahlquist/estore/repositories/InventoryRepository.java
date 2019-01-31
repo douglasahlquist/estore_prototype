@@ -9,7 +9,7 @@ import com.ahlquist.estore.model.Inventory;
  * @author Douglas Ahlquist
  *
  */
-@Repository
+@Repository("inventoryRepository")
 public interface InventoryRepository extends CrudRepository<Inventory, Long> {
 
 }

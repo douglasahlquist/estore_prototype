@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ahlquist.estore.model.User;
 
-@Repository
+@Repository("userRepository")
 public interface UserRepository extends CrudRepository<User, Long> {
 
 	@Query("SELECT u FROM User u where u.email = :email")
