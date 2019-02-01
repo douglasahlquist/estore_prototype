@@ -26,26 +26,35 @@ CREATE TABLE `estore`.`products` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(32) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
-  `variants` JSON NOT NULL,
   `image_url` VARCHAR(512) NULL, 
   PRIMARY KEY (id)
 ) ENGINE=INNODB;
 
+CREATE TABLE `estore`.`variation` (
+  `id` VARCHAR(64) NOT NULL UNIQUE,
+  `product_id` BIGINT(20) NOT NULL,
+  `attributes` JSON NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id)
+) ENGINE=INNODB;
+
+
 CREATE TABLE `estore`.`prices` (
  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,  
  `product_id` BIGINT(20) NOT NULL,
- `variation_uuid` VARCHAR(64) NULL,
+ `variation_id` VARCHAR(64) NULL,
  `start_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
  `end_time` TIMESTAMP NOT NULL,
  `amount` DECIMAL(6,2),
  PRIMARY KEY (id),
- FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id)
+ FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id).
+ FOREIGN KEY (variation_id) REFERENCES `estore`.`variation` (id)
 ) ENGINE=INNODB;
 
 CREATE TABLE `estore`.`inventory` (
  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,  
  `product_id` BIGINT(20) NOT NULL,
- `variation_id` BIGINT(20) NOT NULL,
+ `variation_id` VARCHAR(64) NOT NULL,
  `count` INT,
  PRIMARY KEY (id)
 ) ENGINE=INNODB;
@@ -54,7 +63,7 @@ CREATE TABLE `estore`.`selections` (
  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
  `user_id` BIGINT(20) NOT NULL,  
  `product_id` BIGINT(20) NOT NULL,
- `variation_uuid` VARCHAR(64) NOT NULL,
+ `variation_id` VARCHAR(64) NOT NULL,
  `count` INT,
  PRIMARY KEY (id),
  FOREIGN KEY (user_id) REFERENCES `estore`.`users` (id),
@@ -65,7 +74,6 @@ CREATE TABLE `estore`.`carts` (
 `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 `user_id` BIGINT(20) NOT NULL,
 `open_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`items` JSON NOT NULL,
  PRIMARY KEY (id),
  FOREIGN KEY (user_id) REFERENCES `estore`.`users` (id)
 ) ENGINE=INNODB; 
