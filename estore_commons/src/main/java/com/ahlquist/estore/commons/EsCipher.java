@@ -11,7 +11,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -32,9 +32,12 @@ import org.apache.log4j.Logger;
 
 public class EsCipher {
 
-	final static org.apache.log4j.Logger logger = Logger.getLogger(Cipher.class);
+	//final static Logger logger = Logger.getLogger(EsCipher.class);
 
 	private static final String TOKEN = "passwd";
+	
+	// @Autowired(required = false)
+	// @Qualifier("salt")
 	private String salt;
 
 	// @Autowired(required = false)
@@ -65,7 +68,7 @@ public class EsCipher {
 
 	/**
 	 * TODO (dahlquist) : Update this code to get the SALT from an EC2 param
-	 * value... For now keeping it hard coded is barely exceptble
+	 * value...
 	 * 
 	 * @return
 	 */
@@ -96,7 +99,6 @@ public class EsCipher {
 		cipher.init(Cipher.ENCRYPT_MODE, key, this.iv);
 
 		// generate IV
-
 		byte[] encryptedText = cipher.doFinal(plainText.getBytes("UTF-8"));
 		return Base64.getEncoder().encodeToString(encryptedText);
 	}
@@ -127,9 +129,9 @@ public class EsCipher {
 		try {
 			decyrptTextBytes = cipher.doFinal(encryptTextBytes);
 		} catch (IllegalBlockSizeException e) {
-			logger.error(e);
+//			logger.error(e);
 		} catch (BadPaddingException e) {
-			logger.error(e);
+//			logger.error(e);
 		}
 		return new String(decyrptTextBytes);
 	}
