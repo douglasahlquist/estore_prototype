@@ -45,18 +45,20 @@ CREATE TABLE `estore`.`prices` (
  `variation_id` VARCHAR(64) NULL,
  `start_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
  `end_time` TIMESTAMP NOT NULL,
- `amount` DECIMAL(6,2),
+ `amount` DECIMAL(6,2) NOT NULL,
  PRIMARY KEY (id),
- FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id).
+ FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id),
  FOREIGN KEY (variation_id) REFERENCES `estore`.`variation` (id)
 ) ENGINE=INNODB;
 
 CREATE TABLE `estore`.`inventory` (
  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,  
  `product_id` BIGINT(20) NOT NULL,
- `variation_id` VARCHAR(64) NOT NULL,
+ `variation_id` VARCHAR(64) NULL,
  `count` INT,
- PRIMARY KEY (id)
+ PRIMARY KEY (id),
+ FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id),
+ FOREIGN KEY (variation_id) REFERENCES `estore`.`variation` (id)
 ) ENGINE=INNODB;
 
 CREATE TABLE `estore`.`selections` (
@@ -67,7 +69,8 @@ CREATE TABLE `estore`.`selections` (
  `count` INT,
  PRIMARY KEY (id),
  FOREIGN KEY (user_id) REFERENCES `estore`.`users` (id),
- FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id)
+ FOREIGN KEY (product_id) REFERENCES `estore`.`products` (id),
+ FOREIGN KEY (variation_id) REFERENCES `estore`.`variation` (id)
 ) ENGINE=INNODB;
 
 CREATE TABLE `estore`.`carts` (
@@ -89,3 +92,22 @@ CREATE TABLE `estore`.`transactions` (
  PRIMARY KEY (id),
  FOREIGN KEY (user_id) REFERENCES `estore`.`users` (id)
 ) ENGINE=INNODB;
+
+CREATE VIEW `estore`.`productinventoryprice` AS
+SELECT 
+  pd.id AS id, 
+  pd.category AS category, 
+  pd.description AS description, 
+  pd.image_url AS image_url,
+  v.id AS variation_uuid,
+  v.attributes AS attributes,
+  pc.start_time AS sale_start_time,
+  pc.end_time AS sale_end_time,
+  pc.amount AS amount, 
+  i.count AS count 
+	FROM products pd 
+	JOIN prices pc ON pd.id = pc.product_id 
+	JOIN inventory i ON pd.id = i.product_id
+	JOIN variation v ON pd.id = v.product_id;
+
+
