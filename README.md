@@ -1,5 +1,6 @@
 
 ESTORE PROJECT
+(this is a current non-working prototype, I'm hoping to complete this in the nexrt few days)
 
 1. A general architecture for a distributed, scalable system that would serve as a backend for a hypothetical webstore and shopping cart type application. The requirements would be that individual users would have records of what was purchased and their properties, and be able to return to an existing cart of items if they had a cart that wasn't emptied between sessions by check-out.
 
@@ -20,5 +21,8 @@ This repo contains serveral 'maven' projects.  There organization are in a heira
 
 BUILD
 
-  You must have JAVA8 and Maven installed on your system to build the current repo.  Navigate into the estore_master project and run the `mvn install` command to build all archives.
+You must have JAVA8 and Maven installed on your system to build the current repo.  Navigate into the estore_master project and run the `mvn install` command to build all archives.
 As of now no java mains are moved into the repo.  SpringBoot and Restful Controllers will follow shortly.
+
+
+
