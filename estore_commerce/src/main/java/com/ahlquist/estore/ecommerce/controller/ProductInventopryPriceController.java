@@ -46,6 +46,31 @@ public class ProductInventopryPriceController {
 	ProductService productService;
 	
 	
+	/**
+	 * 
+	 * Request 
+	 * {
+	 *     "user_id" : "",
+	 *     "cart_id" : "",
+	 *     "product_id" : "",
+	 *     "variation_uuid" : ""
+	 *     "quantity" : 2
+	 * }    
+	 *     
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping(
+			method = { RequestMethod.PUT }, 
+			consumes = { "application/json;charset=UTF-8" }, 
+			produces = { "application/json;charset=UTF-8", "text/plain" }
+	) 
+	public ResponseEntity<String> addProductVariationToCart(@RequestBody final Map<String, String> map) {
+		 
+		return eCommerceProductService.addProductVariationToCart(map);
+
+	 }
+
 	//TODO : implement Pageable
 	@RequestMapping(
 			value = "/categories", 
@@ -73,35 +98,5 @@ public class ProductInventopryPriceController {
 		
 		return new ResponseEntity<String>(array.toString(), HttpStatus.OK);
 	}
-
-
-	/**
-	 * 
-	 * Request 
-	 * {
-	 *     "user_id" : "",
-	 *     "cart_id" : "",
-	 *     "product_id" : "",
-	 *     "variation_uuid" : ""
-	 *     "quantity" : 2
-	 * }    
-	 *     
-	 * @param map
-	 * @return
-	 */
-	@RequestMapping(
-			method = { RequestMethod.PUT }, 
-			consumes = { "application/json;charset=UTF-8" }, 
-			produces = { "application/json;charset=UTF-8", "text/plain" }
-	) 
-	public ResponseEntity<String> addProductVariationToCart(@RequestBody final Map<String, String> map) {
-		 
-		return eCommerceProductService.addProductVariationToCart(map);
-
-	 }
-		
-
-	
-
 
 }

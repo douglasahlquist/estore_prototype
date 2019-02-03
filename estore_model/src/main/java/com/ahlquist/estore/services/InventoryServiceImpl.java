@@ -1,5 +1,7 @@
 package com.ahlquist.estore.services;
 
+import java.util.Optional;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,6 +21,11 @@ public class InventoryServiceImpl extends BaseServiceImpl<InventoryRepository, I
 	public InventoryServiceImpl(@Qualifier("inventoryRepository") final InventoryRepository inventoryRepository,
 			@Qualifier("inventoryBuilder") final InventoryBuilder inventoryBuilder) {
 		super(inventoryRepository, inventoryBuilder);
+	}
+
+	@Override
+	public Optional<Inventory> findByProductIdVariationUuid(Long productId, String variantionUuid) {
+		return this.getRepository().getByProductIdVariationUuid(productId, variantionUuid);
 	}
 
 }

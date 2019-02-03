@@ -4,4 +4,6 @@ import com.ahlquist.estore.model.Cart;
 
 public interface CartService extends BaseService<Cart, Long> {
 
+	Cart findByUserIdOrCreate(Long userId);
+
 }
