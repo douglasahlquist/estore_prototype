@@ -1,6 +1,7 @@
 package com.ahlquist.estore.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.ahlquist.estore.builder.SelectionBuilder;
 import com.ahlquist.estore.model.Selection;
 import com.ahlquist.estore.repositories.SelectionRepository;
+
 
 @Service("selectionServive")
 public class SelectionServiceImpl extends BaseServiceImpl<SelectionRepository, SelectionBuilder, Selection, Long>
@@ -34,6 +36,13 @@ public class SelectionServiceImpl extends BaseServiceImpl<SelectionRepository, S
 			logger.debug("deleting selection with cartId: " + cartId.longValue() + " selectionId: " + s.getId().longValue());
 			this.getRepository().delete(s);
 		}	
+	}
+
+	@Override
+	public boolean existsByAllButCount(Long userId, Long cartId, Long productId, String variantionUuid,
+			Long priceId) {
+	    Optional<Selection> o = this.getRepository().findByIdAllButCount(userId, cartId, productId, variantionUuid, priceId);
+	    return o.isPresent() ? true : false;
 	}
 
 }
