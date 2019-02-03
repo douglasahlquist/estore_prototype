@@ -64,9 +64,10 @@ public class SelectionServiceImpl extends BaseServiceImpl<SelectionRepository, S
 		//check the inventory
 		Optional<Inventory> iO = inventoryService.findByProductIdVariationUuid(productId, variantionUuid);
 		if(!iO.isPresent()) {
-			
-			
-			throw new IllegalArgumentException("");
+			RequestError re = new RequestError();
+			re.setError("Inventory Object NOT FOUND from productId: " + productId + " variantionUuid:" + variantionUuid);
+			EntityToJsonUtil<RequestError> util = new EntityToJsonUtil<>();
+			throw new IllegalArgumentException(util.toJson(re).toString());
 		}
 
 		if(sO.isPresent()) {
