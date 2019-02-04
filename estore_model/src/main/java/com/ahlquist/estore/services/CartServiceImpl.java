@@ -27,7 +27,7 @@ public class CartServiceImpl extends BaseServiceImpl<CartRepository, CartBuilder
 	public Cart findByUserIdOrCreate(Long userId) {
 		Optional<Cart> cO = this.findById(userId);
 		Cart c = null;
-		if(!cO.isPresent()) {
+		if (!cO.isPresent()) {
 			c = new Cart();
 			c.setUserId(userId);
 			c.setBeginTime(new Timestamp(System.currentTimeMillis()));

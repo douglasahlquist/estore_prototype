@@ -8,12 +8,9 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
-import org.hibernate.query.Query;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.stereotype.Service;
 
 import com.ahlquist.estore.builder.ProductBuilder;
@@ -58,6 +55,5 @@ public class ProductServiceImpl extends BaseServiceImpl<ProductRepository, Produ
 		a.put(findAllProductCategories());
 		return a;
 	}
-	
 
 }

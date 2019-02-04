@@ -19,7 +19,6 @@ public class TransactionServiceImpl extends
 
 	final static Logger logger = Logger.getLogger(TransactionServiceImpl.class);
 	final static String USERID = "user_id";
-	
 
 	@Autowired
 	public TransactionServiceImpl(@Qualifier("transactionRepository") final TransactionRepository repository,
@@ -30,7 +29,7 @@ public class TransactionServiceImpl extends
 	@Override
 	public boolean create(final Map<String, String> map) {
 		Transaction t = this.getBuilder().build(map);
-		return this.getRepository().save(t)!=null ? true:false;
+		return this.getRepository().save(t) != null ? true : false;
 	}
 
 	@Override
@@ -38,7 +37,7 @@ public class TransactionServiceImpl extends
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public List<Transaction> getTransactionListByUserId(final Map<String, String> map) {
 		return this.getRepository().getTransactionListByUserId(map.get(USERID));

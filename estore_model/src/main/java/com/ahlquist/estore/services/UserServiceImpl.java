@@ -12,8 +12,7 @@ import com.ahlquist.estore.model.User;
 import com.ahlquist.estore.repositories.UserRepository;
 
 @Service("userServive")
-public class UserServiceImpl extends
-BaseServiceImpl<UserRepository, UserBuilder, User, Long> implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<UserRepository, UserBuilder, User, Long> implements UserService {
 
 	final static Logger logger = Logger.getLogger(TransactionServiceImpl.class);
 
@@ -24,10 +23,10 @@ BaseServiceImpl<UserRepository, UserBuilder, User, Long> implements UserService 
 	}
 
 	public void create(Map<String, String> map) {
-		
+
 		User u = this.getBuilder().build(map);
 		this.getRepository().save(u);
-		
+
 	}
 
 	@Override

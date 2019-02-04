@@ -12,7 +12,7 @@ public interface TransactionService extends BaseService<Transaction, Long> {
 	boolean create(final Map<String, String> map);
 
 	JSONObject getTransactionListByUserAndDateRange(final Map<String, String> map);
-	
+
 	List<Transaction> getTransactionListByUserId(final Map<String, String> map);
 
 	JSONObject reversal(Map<String, String> map);

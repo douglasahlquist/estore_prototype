@@ -15,13 +15,12 @@ import com.ahlquist.estore.model.Inventory;
 import com.ahlquist.estore.model.Selection;
 import com.ahlquist.estore.repositories.SelectionRepository;
 
-
 @Service("selectionServive")
 public class SelectionServiceImpl extends BaseServiceImpl<SelectionRepository, SelectionBuilder, Selection, Long>
 		implements SelectionService {
 
 	final static Logger logger = Logger.getLogger(TransactionServiceImpl.class);
-	
+
 	@Autowired
 	@Qualifier("inventoryService")
 	InventoryService inventoryService;
@@ -39,72 +38,74 @@ public class SelectionServiceImpl extends BaseServiceImpl<SelectionRepository, S
 	public void deleteAllSlectionWithCartId(Long cartId) {
 		logger.debug("Deleting all selections for cartid: " + cartId.longValue());
 		List<Selection> list = this.getRepository().findAllByCartId(cartId);
-		for(Selection s: list) {
-			logger.debug("deleting selection with cartId: " + cartId.longValue() + " selectionId: " + s.getId().longValue());
+		for (Selection s : list) {
+			logger.debug(
+					"deleting selection with cartId: " + cartId.longValue() + " selectionId: " + s.getId().longValue());
 			this.getRepository().delete(s);
-		}	
+		}
 	}
-	
-	
 
 	@Override
-	public boolean existsByAllButCount(Long userId, Long cartId, Long productId, String variantionUuid,
-			Long priceId) {
-	    Optional<Selection> o = this.getRepository().findByIdAllButCount(userId, cartId, productId, variantionUuid, priceId);
-	    return o.isPresent() ? true : false;
+	public boolean existsByAllButCount(Long userId, Long cartId, Long productId, String variantionUuid, Long priceId) {
+		Optional<Selection> o = this.getRepository().findByIdAllButCount(userId, cartId, productId, variantionUuid,
+				priceId);
+		return o.isPresent() ? true : false;
 	}
 
 	@Override
 	public Optional<Selection> incDecSelection(Long userId, Long cartId, Long productId, String variantionUuid,
 			Long priceId, int count) throws IllegalArgumentException {
-		
+
 		Selection s = null;
-		Optional<Selection> sO = this.getRepository().findByIdAllButCount(userId, cartId, productId, variantionUuid, priceId);
-		
-		//check the inventory
+		Optional<Selection> sO = this.getRepository().findByIdAllButCount(userId, cartId, productId, variantionUuid,
+				priceId);
+
+		// check the inventory
 		Optional<Inventory> iO = inventoryService.findByProductIdVariationUuid(productId, variantionUuid);
-		if(!iO.isPresent()) {
+		if (!iO.isPresent()) {
 			RequestError re = new RequestError();
-			re.setError("Inventory Object NOT FOUND from productId: " + productId + " variantionUuid:" + variantionUuid);
+			re.setError(
+					"Inventory Object NOT FOUND from productId: " + productId + " variantionUuid:" + variantionUuid);
 			EntityToJsonUtil<RequestError> util = new EntityToJsonUtil<>();
 			throw new IllegalArgumentException(util.toJson(re).toString());
 		}
 
-		if(sO.isPresent()) {
-			logger.debug("Selection NOT FOUND userId:" + userId.toString() + " cartId:" + cartId.toString() + " productId:" + productId.toString() + " priceId:" + priceId.toString());
-		
-			//if count - what's in inventory <= 0, don't allow to mke a selection, throw exception
-		    return incDecSelection(s, iO.get(), count);
-		
-		}else{
+		if (sO.isPresent()) {
+			logger.debug("Selection NOT FOUND userId:" + userId.toString() + " cartId:" + cartId.toString()
+					+ " productId:" + productId.toString() + " priceId:" + priceId.toString());
+
+			// if count - what's in inventory <= 0, don't allow to mke a selection, throw
+			// exception
+			return incDecSelection(s, iO.get(), count);
+
+		} else {
 			s = new Selection();
 			s.setCartId(cartId);
-			s.setCount(count);   //this is the first time this selection has been added
+			s.setCount(count); // this is the first time this selection has been added
 			s.setPriceId(priceId);
 			s.setProductId(productId);
 			s.setUserId(userId);
 			s.setVariantUuid(variantionUuid);
-			
+
 			s = this.getRepository().save(s);
 		}
 		return Optional.of(s);
 	}
 
 	@Override
-	public Optional<Selection> incDecSelection(Selection selection, final Inventory inventory, final int count) throws IllegalArgumentException {
-		
+	public Optional<Selection> incDecSelection(Selection selection, final Inventory inventory, final int count)
+			throws IllegalArgumentException {
+
 		int inventoryCount = inventory.getQuantity();
-		if(inventoryCount-count<0) {
+		if (inventoryCount - count < 0) {
 			RequestError re = new RequestError();
-			
-			
+
 			EntityToJsonUtil<RequestError> util = new EntityToJsonUtil<>();
 			throw new IllegalArgumentException(util.toJson(re).toString());
 		}
 		selection.setCount(count);
-		
+
 		return Optional.of(selection);
 	}
-
 
 }
