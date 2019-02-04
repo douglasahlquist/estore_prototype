@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableJpaRepositories(basePackages = "com.ahlquist.estore.repositories")
 @SpringBootApplication(scanBasePackages = { "com.ahlquist.estore.controller", "com.ahlquist.estore.model",
-		"com.ahlquist.estore.services", "com.ahlquist.estore.services" })
+		"com.ahlquist.estore.services", "com.ahlquist.estore.transaction.services" })
 @ImportResource({ "classpath*:spring-config.xml" })
 @EnableTransactionManagement
 public class TransactionSpringBootApp {
