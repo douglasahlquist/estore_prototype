@@ -1,4 +1,4 @@
-package com.ahlquist.estore.ecommerce.controller;
+package com.ahlquist.estore.authentication.controller;
 
 import java.util.Map; 
 
