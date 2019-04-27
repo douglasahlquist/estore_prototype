@@ -1,6 +1,6 @@
 
 ESTORE PROJECT
-(this is a current non-working prototype, I'm hoping to complete this in the nexrt few days)
+(this is a current non-working prototype, I'm hoping to complete this in the next few days.  I did this as part of a coding employment challenge.  The company didn't expect this to be completed.  I was told no one had.)
 
 1. A general architecture for a distributed, scalable system that would serve as a backend for a hypothetical webstore and shopping cart type application. The requirements would be that individual users would have records of what was purchased and their properties, and be able to return to an existing cart of items if they had a cart that wasn't emptied between sessions by check-out.
 
