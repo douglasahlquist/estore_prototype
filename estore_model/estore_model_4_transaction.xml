@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>estore_model_4_transaction</artifactId>
+	
+	<properties>
+		<compiler.source.version>1.8</compiler.source.version>
+		<compiler.target.version>1.8</compiler.target.version>
+	</properties>
+
+	<parent>
+		<groupId>com.ahlquist.estore</groupId>
+		<artifactId>estore_model_parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>estore_model_parent.xml</relativePath>
+	</parent>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>${compiler.source.version}</source>
+					<target>${compiler.target.version}</target>
+					<includes>
+						<!-- base classes -->
+						<include>**/IEntityBuilder.java</include>
+						<include>**/BaseEntity.java</include>
+						<include>**/IBaseEntity.java</include>
+						<include>**/BaseService.java</include>
+						<include>**/BaseServiceImpl.java</include>
+
+						<inlcude>**/TransactionBuilder.java</inlcude>
+						<inlcude>**/Transaction.java</inlcude>
+						<inlcude>**/TransactionRepository.java</inlcude>
+						<inlcude>**/TransactionService.java</inlcude>
+						<inlcude>**/TransactionServiceImpl.java</inlcude>
+
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

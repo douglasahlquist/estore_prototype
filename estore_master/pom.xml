@@ -33,6 +33,10 @@
 	<modules>
 		<module>../estore_commons/pom.xml</module>
 		<module>../estore_model/pom.xml</module>
+		<module>../estore_model/estore_model_4_ecommerce.xml</module>
+		<module>../estore_model/estore_model_4_transaction.xml</module>
+		<module>../estore_model/estore_model_4_user.xml</module>
+		
 		<module>../estore_user/pom.xml</module>
 		<module>../estore_admin/pom.xml</module>
 		<module>../estore_commerce/pom.xml</module>

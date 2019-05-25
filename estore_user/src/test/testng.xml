@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Autnentication Module TestNg Suite" verbose="1">
+
+	<test name="smoketests-application">
+		<classes>
+			<class 
+				name="test.ahlquist.estore.authentication.controller.UserControllerTest" />
+		</classes>
+<!-- 		<classes> -->
+<!-- 			<class -->
+<!-- 				name="test.ahlquist.estore.authentication.controller.ValidationControllerTest" /> -->
+<!-- 		</classes> -->
+	</test>
+
+</suite>

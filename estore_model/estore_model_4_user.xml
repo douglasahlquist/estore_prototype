@@ -2,22 +2,22 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>estore_model</artifactId>
+	<artifactId>estore_model_4_user</artifactId>
 
 	<parent>
 		<groupId>com.ahlquist.estore</groupId>
 		<artifactId>estore_model_parent</artifactId>
-	    <version>0.0.1-SNAPSHOT</version>
-	    <relativePath>estore_model_parent.xml</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>estore_model_parent.xml</relativePath>
 	</parent>
 	
-   <properties>
+	<properties>
 		<compiler.source.version>1.8</compiler.source.version>
 		<compiler.target.version>1.8</compiler.target.version>
 	</properties>
 
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory> 
 
 		<plugins>
 			<plugin>
@@ -26,6 +26,18 @@
 				<configuration>
 					<source>${compiler.source.version}</source>
 					<target>${compiler.target.version}</target>
+					<includes>
+						<!-- base classes -->
+						<include>**/IEntityBuilder.java</include>
+						<include>**/BaseEntity.java</include>
+						<include>**/IBaseEntity.java</include>
+						<include>**/BaseService.java</include>
+						<include>**/BaseServiceImpl.java</include>
+
+						<inlcude>**/User.java</inlcude>
+						<inlcude>**/User*.java</inlcude>
+
+					</includes>
 				</configuration>
 			</plugin>
 		</plugins>

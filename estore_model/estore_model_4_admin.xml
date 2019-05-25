@@ -3,6 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>estore_model</artifactId>
+	
+	<properties>
+		<compiler.source.version>1.8</compiler.source.version>
+		<compiler.target.version>1.8</compiler.target.version>
+	</properties>
 
 	<parent>
 		<groupId>com.ahlquist.estore</groupId>
@@ -10,11 +15,6 @@
 	    <version>0.0.1-SNAPSHOT</version>
 	    <relativePath>estore_model_parent.xml</relativePath>
 	</parent>
-	
-   <properties>
-		<compiler.source.version>1.8</compiler.source.version>
-		<compiler.target.version>1.8</compiler.target.version>
-	</properties>
 
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
