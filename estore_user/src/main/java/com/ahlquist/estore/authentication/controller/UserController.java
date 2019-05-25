@@ -39,7 +39,6 @@ public class UserController {
 	 * @param map
 	 * @param response
 	 * @return
-	 * @throws UserNotFoundException
 	 * @throws JSONException
 	 */
 	@RequestMapping(method = { RequestMethod.PUT }, consumes = { "application/json;charset=UTF-8" }, produces = {
