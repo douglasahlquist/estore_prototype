@@ -26,18 +26,18 @@
 				<configuration>
 					<source>${compiler.source.version}</source>
 					<target>${compiler.target.version}</target>
-					<includes>
+					<includes> 
 						<!-- base classes -->
-						<include>**/IEntityBuilder.java</include>
-						<include>**/BaseEntity.java</include>
-						<include>**/IBaseEntity.java</include>
-						<include>**/BaseService.java</include>
-						<include>**/BaseServiceImpl.java</include>
+						<include>**/IEntityBuilder.java</include> 
+						<include>**/BaseEntity.java</include> 
+						<include>**/IBaseEntity.java</include> 
+ 						<include>**/BaseService.java</include> 
+						<include>**/BaseServiceImpl.java</include> 
 
-						<inlcude>**/User.java</inlcude>
-						<inlcude>**/User*.java</inlcude>
+						<inlcude>**/User.java</inlcude> 
+						<inlcude>**/User*.java</inlcude> 
 
-					</includes>
+		 		</includes>  
 				</configuration>
 			</plugin>
 		</plugins>

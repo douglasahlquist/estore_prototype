@@ -10,7 +10,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<start-class>com.ahlquist.estore.authentication.app.UserSpringBootApp</start-class>
+		<start-class>com.ahlquist.estore.authentication.app.AuthenticationSpringBootApp</start-class>
 	</properties>
 
 	<parent>
