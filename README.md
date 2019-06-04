@@ -21,7 +21,7 @@ This repo contains serveral 'maven' projects.  There organization are in a heira
 
 BUILD
 
-You must have JAVA8 and Maven installed on your system to build the current repo.  Navigate into the estore_master project and run the `mvn install` command to build all archives.
+You must have JAVA8 and Maven installed on your system to build the current repo.  Navigate into the estore_master project or the repo root and run the `mvn install` command to build all archives.
 As of now no java mains are moved into the repo.  SpringBoot and Restful Controllers will follow shortly.
 
 
